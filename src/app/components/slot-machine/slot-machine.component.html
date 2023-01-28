@@ -1,0 +1,19 @@
+<div class="slot-machine">
+    <div class="reel">
+        <div class="reel">{{reels[0]['image']}}</div>
+    </div>
+    <div class="reel">
+        <div class="reel">{{reels[1]['image']}}</div>
+    </div>
+    <div class="reel">
+        <div class="reel">{{reels[2]['image']}}</div>
+    </div>
+    
+    <button id="spin-button" (click)="girar()">Spin</button>
+    <div *ngIf="isWinner" class="winner">Congratulations! You won {{winnings}} coins</div>
+  </div>
+  <div>
+    <img [src]= "[rodillo1['image']]">
+    <img [src]= "[rodillo2['image']]">
+    <img [src]= "[rodillo3['image']]">
+  </div>
