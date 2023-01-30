@@ -14,7 +14,7 @@ export class SlotMachineComponent implements OnInit {
     { name: "cherry", image: "assets/cherry.png" },
     { name: "herradura", image: "assets/herradura.png" }
   ];
-  weights = [0.2, 1, 0.25, 0.1, 0.15];
+  weights = [0.2, 0.12, 0.15, 0.1, 0.15];
 
   winningCombinations = {
     "siete siete siete": 20,
@@ -32,16 +32,13 @@ export class SlotMachineComponent implements OnInit {
   rodillo3= [];
 
   isSpinning = false;
+  
+  spot= 0;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.reels;
-    console.log(this.randomSymbol());
-    this.rodillo1 = this.randomSymbol();
-    this.rodillo2 = this.randomSymbol();
-    this.rodillo3 = this.randomSymbol();
-
+    
   }
 
   girar(){
@@ -72,9 +69,9 @@ export class SlotMachineComponent implements OnInit {
     symbols.forEach(symbol => symbol.classList.add("spin-animation"));
 
     // Genera los simbolos aleatorios para cada reel
-    this.reels = [[this.randomSymbol(), this.randomSymbol(), this.randomSymbol()],
-                  [this.randomSymbol(), this.randomSymbol(), this.randomSymbol()],
-                  [this.randomSymbol(), this.randomSymbol(), this.randomSymbol()]];
+    this.rodillo1 = this.randomSymbol();
+    this.rodillo2 = this.randomSymbol();
+    this.rodillo3 = this.randomSymbol();
 
     setTimeout(() => {
       symbols.forEach(symbol => symbol.classList.remove("spin-animation"));
@@ -82,16 +79,16 @@ export class SlotMachineComponent implements OnInit {
       spinButton.removeAttribute("disabled");
 
       // Chequea si hay una combinacion ganadora
-      this.checkWinningCombination(this.reels);
+      this.checkWinningCombination();
     }, 3000);
-    console.log(this.randomSymbol());
+    
   }
 
-  checkWinningCombination(reels) {
+  checkWinningCombination() {
     // Toma los nombres de los símbolos en cada uno de los carretes
-    const reel1 = this.reels[0]['name'];
-    const reel2 = this.reels[1]['name'];
-    const reel3 = this.reels[2]['name'];
+    const reel1 = this.rodillo1['name'];
+    const reel2 = this.rodillo2['name'];
+    const reel3 = this.rodillo3['name'];
     // Concatena los nombres de los símbolos para formar la combinación
     const combination = reel1 + ' ' + reel2 + ' ' + reel3;
 
@@ -99,10 +96,18 @@ export class SlotMachineComponent implements OnInit {
     if (this.winningCombinations[combination]) {
       this.isWinner = true;
       this.winnings = this.winningCombinations[combination];
+      this.spot = this.spot + this.winnings;
     } else {
       this.isWinner = false;
       this.winnings = 0;
+      this.spot = this.spot -1 ;
+      
     }
+    console.log(combination);
   }
   
+  cargarCreditos(){
+    var cargador = (document.getElementById('cargador') as HTMLInputElement)!.value;
+    this.spot = this.spot + parseInt(cargador);
+  }
 }

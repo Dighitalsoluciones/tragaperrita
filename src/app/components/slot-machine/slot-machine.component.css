@@ -8,6 +8,16 @@
     background-size: cover;
   }
 
-  .spin.spin-animation {
-    transform: rotate(360deg);
+  
+
+  .spin-animation {
+    animation: spin 3s linear infinite;
   }
+  
+  @keyframes spin {
+    from { transform: rotate(-100000000deg); }
+    to { transform: rotate(360000000deg); }
+  }
+
+  
+  

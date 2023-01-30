@@ -1,3 +1,4 @@
+<div class="row col-3">
 <div class="slot-machine">
     <div class="reel">
         <div class="reel">{{reels[0]['image']}}</div>
@@ -8,12 +9,20 @@
     <div class="reel">
         <div class="reel">{{reels[2]['image']}}</div>
     </div>
-    
-    <button id="spin-button" (click)="girar()">Spin</button>
-    <div *ngIf="isWinner" class="winner">Congratulations! You won {{winnings}} coins</div>
+    <audio preload="auto" src="assets/sonidomaquina.mp3" autoplay  ></audio> 
+    <button id="spin-button" (click)="spin(); ">GIRAR</button>
+    <div *ngIf="isWinner" class="winner">Felicidades Has Ganado {{winnings}} coins</div>
   </div>
   <div>
-    <img [src]= "[rodillo1['image']]">
-    <img [src]= "[rodillo2['image']]">
-    <img [src]= "[rodillo3['image']]">
+    <img [src]= "[rodillo1['image']]" class="spin">
+    <img [src]= "[rodillo2['image']]" class="spin">
+    <img [src]= "[rodillo3['image']]" class="spin">
   </div>
+
+  <div>
+    TIENES {{spot}} COINS PARA JUGAR
+  </div>
+
+  <input type="number" id="cargador" value="">
+  <button (click)="cargarCreditos()">Cargar Saldo</button>
+</div>
