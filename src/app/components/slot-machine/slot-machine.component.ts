@@ -84,6 +84,29 @@ export class SlotMachineComponent implements OnInit {
     
   }
 
+  spinx2() {
+    this.isSpinning = true;
+    const spinButton = document.getElementById("spin-button");
+    spinButton.setAttribute("disabled", "true");
+    const symbols = document.querySelectorAll(".spin");
+    symbols.forEach(symbol => symbol.classList.add("spin-animation"));
+
+    // Genera los simbolos aleatorios para cada reel
+    this.rodillo1 = this.randomSymbol();
+    this.rodillo2 = this.randomSymbol();
+    this.rodillo3 = this.randomSymbol();
+
+    setTimeout(() => {
+      symbols.forEach(symbol => symbol.classList.remove("spin-animation"));
+      this.isSpinning = false;
+      spinButton.removeAttribute("disabled");
+
+      // Chequea si hay una combinacion ganadora
+      this.checkWinningCombinationx2();
+    }, 3000);
+    
+  }
+
   checkWinningCombination() {
     // Toma los nombres de los símbolos en cada uno de los carretes
     const reel1 = this.rodillo1['name'];
@@ -101,6 +124,28 @@ export class SlotMachineComponent implements OnInit {
       this.isWinner = false;
       this.winnings = 0;
       this.spot = this.spot -1 ;
+      
+    }
+    console.log(combination);
+  }
+
+  checkWinningCombinationx2() {
+    // Toma los nombres de los símbolos en cada uno de los carretes
+    const reel1 = this.rodillo1['name'];
+    const reel2 = this.rodillo2['name'];
+    const reel3 = this.rodillo3['name'];
+    // Concatena los nombres de los símbolos para formar la combinación
+    const combination = reel1 + ' ' + reel2 + ' ' + reel3;
+
+    // Comprueba si la combinación es una ganadora
+    if (this.winningCombinations[combination]) {
+      this.isWinner = true;
+      this.winnings = this.winningCombinations[combination];
+      this.spot = this.spot + (this.winnings * 2);
+    } else {
+      this.isWinner = false;
+      this.winnings = 0;
+      this.spot = this.spot -2 ;
       
     }
     console.log(combination);

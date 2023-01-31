@@ -12,6 +12,7 @@
     </div>
     <audio preload="auto" src="assets/sonidomaquina.mp3" autoplay  ></audio> 
     <button id="spin-button" (click)="spin(); ">GIRAR</button>
+    <button id="spin-button" (click)="spinx2(); ">GIRAR X2</button>
     <div *ngIf="isWinner" class="winner">Felicidades Has Ganado {{winnings}} coins</div>
   </div>
   <div>
