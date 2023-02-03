@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row col-4">
+    <div class="row col-4 centrar">
 <div class="slot-machine">
     <div class="reel">
         <div class="reel">{{reels[0]['image']}}</div>
@@ -15,10 +15,43 @@
     <button id="spin-button" (click)="spinx2(); ">GIRAR X2</button>
     <div *ngIf="isWinner" class="winner">Felicidades Has Ganado {{winnings}} coins</div>
   </div>
-  <div>
-    <img [src]= "[rodillo1['image']]" class="spin">
-    <img [src]= "[rodillo2['image']]" class="spin">
-    <img [src]= "[rodillo3['image']]" class="spin">
+  <div class="centrar">
+    <div class="contenedor">
+        <div class="cont-hijo">
+        <img [src]= "[rodillo1['image']]" class="spin imgposicion">
+        <div>
+        <img src="/assets/bar.png" class="item item1 img spin" id="desaparecer">
+        <img src="/assets/sandia.png" class="item item2 img spin" id="desaparecer">
+        <img src="/assets/cherry.png" class="item item3 img spin" id="desaparecer">
+        <img src="/assets/herradura.png" class="item item4 img spin" id="desaparecer">
+        <img src="/assets/siete.png" class="item item5 img spin" id="desaparecer">
+        </div>
+      </div>
+    </div>
+      <div class="contenedor">
+      <div class="cont-hijo">
+        <img [src]= "[rodillo2['image']]" class="spin imgposicion">
+        <div>
+        <img src="/assets/bar.png" class="item item1 img spin">
+        <img src="/assets/sandia.png" class="item item2 img spin">
+        <img src="/assets/cherry.png" class="item item3 img spin">
+        <img src="/assets/herradura.png" class="item item4 img spin">
+        <img src="/assets/siete.png" class="item item5 img spin">
+      </div>
+      </div>
+    </div>
+    <div class="contenedor">
+      <div class="cont-hijo">
+        <img [src]= "[rodillo3['image']]" class="spin imgposicion">
+        <div>
+        <img src="/assets/bar.png" class="item item1 img spin">
+        <img src="/assets/sandia.png" class="item item2 img spin">
+        <img src="/assets/cherry.png" class="item item3 img spin">
+        <img src="/assets/herradura.png" class="item item4 img spin">
+        <img src="/assets/siete.png" class="item item5 img spin">
+      </div>
+      </div>
+    </div>
   </div>
 
   <div>
@@ -29,3 +62,16 @@
   <button (click)="cargarCreditos()">Cargar Saldo</button>
 </div>
 </div>
+
+<!-- Probando efecto css no mostrarlo
+
+<div class="contenedor">
+  <div class="cont-hijo">
+    <img src="/assets/bar.png" class="item item1 img">
+    <img src="/assets/sandia.png" class="item item2 img">
+    <img src="/assets/cherry.png" class="item item3 img">
+    <img src="/assets/herradura.png" class="item item4 img">
+    <img src="/assets/siete.png" class="item item5 img">
+  </div>
+</div>
+-->

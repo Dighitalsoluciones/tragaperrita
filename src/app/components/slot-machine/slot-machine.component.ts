@@ -14,7 +14,7 @@ export class SlotMachineComponent implements OnInit {
     { name: "cherry", image: "assets/cherry.png" },
     { name: "herradura", image: "assets/herradura.png" }
   ];
-  weights = [0.2, 0.12, 0.15, 0.1, 0.15];
+  weights = [0.1, 0.12, 0.15, 0.1, 0.15];
 
   winningCombinations = {
     "siete siete siete": 20,
@@ -60,7 +60,7 @@ export class SlotMachineComponent implements OnInit {
     return symbol;
   }
 
-
+  
   spin() {
     this.isSpinning = true;
     const spinButton = document.getElementById("spin-button");
@@ -77,9 +77,10 @@ export class SlotMachineComponent implements OnInit {
       symbols.forEach(symbol => symbol.classList.remove("spin-animation"));
       this.isSpinning = false;
       spinButton.removeAttribute("disabled");
-
+      
       // Chequea si hay una combinacion ganadora
       this.checkWinningCombination();
+      
     }, 3000);
     
   }
@@ -103,6 +104,7 @@ export class SlotMachineComponent implements OnInit {
 
       // Chequea si hay una combinacion ganadora
       this.checkWinningCombinationx2();
+      
     }, 3000);
     
   }
@@ -155,4 +157,6 @@ export class SlotMachineComponent implements OnInit {
     var cargador = (document.getElementById('cargador') as HTMLInputElement)!.value;
     this.spot = this.spot + parseInt(cargador);
   }
+
+  
 }
