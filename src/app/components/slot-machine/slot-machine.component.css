@@ -45,7 +45,7 @@
   }
   .item{
     height: 100px;
-    width: 100px;
+    width: 98px;
     position: absolute;
     background: linear-gradient(7deg, rgba(255,255,255,1)4%,
     rgb(0, 0, 0) 100%, rgba(36,124,39,1)100%);
@@ -55,8 +55,10 @@
   .imgposicion{
     position: absolute;
     z-index: 1;
-    background-color: black;
+    background: linear-gradient(7deg, rgba(255,255,255,1)4%,
+    rgb(0, 0, 0) 100%, rgba(36,124,39,1)100%);
     background-blend-mode: exclusion;
+    border-radius: 20px;
   }
 
   .img{
@@ -71,16 +73,16 @@
     transform: rotateX(0deg);
   }
   .item2{
-    transform: rotateX(45deg);
+    transform: rotateX(0deg);
   }
   .item3{
-    transform: rotateX(-45deg);
+    transform: rotateX(0deg);
   }
   .item4{
     transform: rotateX(0deg);
   }
   .item5{
-    transform: rotateX(135deg);
+    transform: rotateX(0deg);
   }
 
   @keyframes rotar1{
