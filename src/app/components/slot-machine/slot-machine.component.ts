@@ -35,10 +35,12 @@ export class SlotMachineComponent implements OnInit {
   
   spot= 0;
 
+  showImage = false;
+
   constructor() { }
 
   ngOnInit(): void {
-    
+    this.iniciarSlots();
   }
 
   girar(){
@@ -62,6 +64,7 @@ export class SlotMachineComponent implements OnInit {
 
   
   spin() {
+    this.showImage = false;
     this.isSpinning = true;
     const spinButton = document.getElementById("spin-button");
     spinButton.setAttribute("disabled", "true");
@@ -77,15 +80,17 @@ export class SlotMachineComponent implements OnInit {
       symbols.forEach(symbol => symbol.classList.remove("spin-animation"));
       this.isSpinning = false;
       spinButton.removeAttribute("disabled");
-      
+      this.showImage = true;
       // Chequea si hay una combinacion ganadora
       this.checkWinningCombination();
+      
       
     }, 3000);
     
   }
 
   spinx2() {
+    this.showImage = false;
     this.isSpinning = true;
     const spinButton = document.getElementById("spin-button");
     spinButton.setAttribute("disabled", "true");
@@ -101,7 +106,7 @@ export class SlotMachineComponent implements OnInit {
       symbols.forEach(symbol => symbol.classList.remove("spin-animation"));
       this.isSpinning = false;
       spinButton.removeAttribute("disabled");
-
+      this.showImage = true;
       // Chequea si hay una combinacion ganadora
       this.checkWinningCombinationx2();
       
@@ -158,5 +163,10 @@ export class SlotMachineComponent implements OnInit {
     this.spot = this.spot + parseInt(cargador);
   }
 
+  iniciarSlots(){
+    this.rodillo1 = Symbol[0];
+    this.rodillo2 = Symbol[1];
+    this.rodillo3 = Symbol[2];
+  }
   
 }

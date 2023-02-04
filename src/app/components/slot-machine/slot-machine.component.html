@@ -18,7 +18,7 @@
   <div class="centrar">
     <div class="contenedor">
         <div class="cont-hijo">
-        <img [src]= "[rodillo1['image']]" class="spin imgposicion">
+        <img [src]= "[rodillo1['image']]" class="spin imgposicion" *ngIf="showImage">
         <div>
         <img src="/assets/bar.png" class="item item1 img spin" id="desaparecer">
         <img src="/assets/sandia.png" class="item item2 img spin" id="desaparecer">
@@ -30,7 +30,7 @@
     </div>
       <div class="contenedor">
       <div class="cont-hijo">
-        <img [src]= "[rodillo2['image']]" class="spin imgposicion">
+        <img [src]= "[rodillo2['image']]" class="spin imgposicion" *ngIf="showImage">
         <div>
         <img src="/assets/bar.png" class="item item1 img spin">
         <img src="/assets/sandia.png" class="item item2 img spin">
@@ -42,7 +42,7 @@
     </div>
     <div class="contenedor">
       <div class="cont-hijo">
-        <img [src]= "[rodillo3['image']]" class="spin imgposicion">
+        <img [src]= "[rodillo3['image']]" class="spin imgposicion" *ngIf="showImage">
         <div>
         <img src="/assets/bar.png" class="item item1 img spin">
         <img src="/assets/sandia.png" class="item item2 img spin">
