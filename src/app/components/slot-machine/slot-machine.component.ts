@@ -92,7 +92,7 @@ export class SlotMachineComponent implements OnInit {
   spinx2() {
     this.showImage = false;
     this.isSpinning = true;
-    const spinButton = document.getElementById("spin-button");
+    const spinButton = document.getElementById("spin-buttonX2");
     spinButton.setAttribute("disabled", "true");
     const symbols = document.querySelectorAll(".spin");
     symbols.forEach(symbol => symbol.classList.add("spin-animation"));
